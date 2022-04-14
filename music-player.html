@@ -1,0 +1,114 @@
+<style>
+  div.wrapper {
+    position: relative;
+    width: 70%;
+    max-width: 250px;
+    margin: 50px auto;
+    border: 1px solid black;
+    border-radius: 20px;
+  }
+  div.bg {
+    border-radius: 20px;
+    width: 100%;
+    height: 400px;
+    margin: 0px auto;
+    background: linear-gradient(35deg, #CCFFFF, #FFCCCC);
+    filter: blur(6px)
+  }
+
+  div.cover-album {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(100,100,100,0.26);
+    
+    height: 120px;
+    top: 50;
+    left: 25%;
+    z-index: 3;
+  }
+
+  .cover-img {
+    width: 100%;
+    height: inherit;
+  }
+
+  .queue-box {
+    border-radius: 0 0 20px 20px;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 20px rgba(25,25,25,0.24);
+    width: 95%;
+    height: 200px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    z-index: 3;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  
+  .songs {
+    position:relative;
+    font-size: 13px;
+    font-family: helvetica;
+    color: rgb(137, 137, 137);
+    padding: 10 0 10 10;
+    
+  }
+
+  .songs:hover {
+    background-color: rgba(255, 255, 255, 0.47);
+  }
+
+  .playing {
+    background-color: rgba(255, 255, 255, 0.922);
+  }
+
+  ::-webkit-scrollbar {
+  width: 5px;
+  height: 30px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 0 0 20px 20px ;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(255, 255, 255);
+  border-radius: 30px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(162, 162, 162);
+}
+</style>
+<!DOCTYPE html>
+<head>
+</head>
+<html>
+  <body>
+    <div class="wrapper">
+      <div class="bg">
+      </div>
+      <div class="cover-album">
+        <img class="cover-img" src="https://upload.wikimedia.org/wikipedia/id/1/1b/Lauv_-_I_Like_Me_Better.png"/>
+      </div>
+        <div class="queue-box">
+              <div class="songs">Test 1 - album</div>
+              <div class="songs">Test 2 - album</div>
+              <div class="songs">Test 3 - album</div>
+              <div class="songs playing">Test 4 - album</div>
+              <div class="songs">Test 5 - album</div>
+              <div class="songs">Test 6 - album</div>
+              <div class="songs">Test 7 - album</div>
+              <div class="songs">Test 5 - album</div>
+              <div class="songs">Test 6 - album</div>
+              <div class="songs">Test 7 - album</div>
+        </div>
+    </div>
+  </body>
+</html>
