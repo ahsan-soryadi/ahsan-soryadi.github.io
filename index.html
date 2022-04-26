@@ -1,59 +1,81 @@
 <style>
+  body{
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
   div.wrapper {
-    position: relative;
-    width: 70%;
-    max-width: 250px;
-    margin: 50px auto;
-    border: 1px solid black;
-    border-radius: 20px;
+    display: grid;
+    justify-items: stretch;
+    grid-template-columns: 150px auto auto;
+    grid-template-rows: auto auto 150px;
+    grid-template-areas: 
+      "left-panel song-list song-list"
+      "left-panel song-list song-list"
+      "album-cover song-control song-control";
+    /* position: relative; */
+    /* width: 70%; */
+    /* max-width: 250px; */
+    /* margin: 50px auto; */
+    /* border-radius: 20px; */
+    width: 100vw;
+    height: 100vh;
+    background-color: aqua;
+    
   }
   div.bg {
-    border-radius: 20px;
+    /* border-radius: 20px; */
     width: 100%;
-    height: 400px;
-    margin: 0px auto;
+    grid-area: song-list;
+    /* height: 400px; */
+    /* margin: 0px auto; */
     background: linear-gradient(35deg, #CCFFFF, #FFCCCC);
-    filter: blur(6px)
+    /* filter: blur(6px) */
   }
 
   div.cover-album {
-    position: absolute;
-    background-color: white;
+    /* position: absolute; */
+    background-color: rgb(183, 26, 26);
     box-shadow: 0 10px 20px rgba(100,100,100,0.26);
-    
-    height: 120px;
-    top: 50;
-    left: 25%;
-    z-index: 3;
+    grid-area: album-cover;
+    justify-self: center;
+    text-align: center;
+    /* height: 120px; */
+    /* top: 50; */
+    /* left: 25%; */
+    z-index: 5;
   }
 
   .cover-img {
-    width: 100%;
-    height: inherit;
+    width: 90%;
+    height: 90%;
+    margin-top: 7%;
+    /* grid-area: album-cover; */
   }
 
   .queue-box {
-    border-radius: 0 0 20px 20px;
-    position: absolute;
+    /* border-radius: 0 0 20px 20px; */
+    grid-area: song-list;
+    /* position: absolute; */
     background-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0 10px 20px rgba(25,25,25,0.24);
-    width: 95%;
+    /* width: 95%; */
     height: 200px;
-    bottom: 5px;
-    left: 5px;
-    right: 5px;
+    /* bottom: 5px; */
+    /* left: 5px; */
+    /* right: 5px; */
     z-index: 3;
     overflow: hidden;
     overflow-y: scroll;
   }
   
   .songs {
-    position:relative;
+    /* position:relative; */
     font-size: 13px;
     font-family: helvetica;
     color: rgb(137, 137, 137);
     padding: 10 0 10 10;
-    
+    /* grid-area: song-list; */
   }
 
   .songs:hover {
@@ -93,22 +115,25 @@
   <body>
     <div class="wrapper">
       <div class="bg">
+        <div class="queue-box">
+          <div class="songs">Test 1 - album</div>
+          <div class="songs">Test 2 - album</div>
+          <div class="songs">Test 3 - album</div>
+          <div class="songs playing">Test 4 - album</div>
+          <div class="songs">Test 5 - album</div>
+          <div class="songs">Test 6 - album</div>
+          <div class="songs">Test 7 - album</div>
+          <div class="songs">Test 5 - album</div>
+          <div class="songs">Test 6 - album</div>
+          <div class="songs">Test 7 - album</div>
+        </div>
       </div>
       <div class="cover-album">
         <img class="cover-img" src="https://upload.wikimedia.org/wikipedia/id/1/1b/Lauv_-_I_Like_Me_Better.png"/>
       </div>
-        <div class="queue-box">
-              <div class="songs">Test 1 - album</div>
-              <div class="songs">Test 2 - album</div>
-              <div class="songs">Test 3 - album</div>
-              <div class="songs playing">Test 4 - album</div>
-              <div class="songs">Test 5 - album</div>
-              <div class="songs">Test 6 - album</div>
-              <div class="songs">Test 7 - album</div>
-              <div class="songs">Test 5 - album</div>
-              <div class="songs">Test 6 - album</div>
-              <div class="songs">Test 7 - album</div>
-        </div>
+      <div class="audio-control">
+        <audio src="#" type="audio/mpeg"></audio>
+      </div>
     </div>
   </body>
 </html>
