@@ -4,11 +4,11 @@
     padding: 0;
     min-height: 100%;
   }
-  div.wrapper {
+  .wrapper {
     display: grid;
     justify-items: stretch;
     grid-template-columns: 150px auto auto;
-    grid-template-rows: auto auto 150px;
+    grid-template-rows: 100px auto 150px;
     grid-template-areas: 
       "left-panel song-list song-list"
       "left-panel song-list song-list"
@@ -23,59 +23,67 @@
     background-color: aqua;
     
   }
-  div.bg {
+  .bg {
     /* border-radius: 20px; */
-    width: 100%;
+    padding: 10px;
     grid-area: song-list;
+    /* height: 100%; */
     /* height: 400px; */
     /* margin: 0px auto; */
     background: linear-gradient(35deg, #CCFFFF, #FFCCCC);
     /* filter: blur(6px) */
-  }
-
-  div.cover-album {
-    /* position: absolute; */
-    background-color: rgb(183, 26, 26);
-    box-shadow: 0 10px 20px rgba(100,100,100,0.26);
-    grid-area: album-cover;
-    justify-self: center;
-    text-align: center;
-    /* height: 120px; */
-    /* top: 50; */
-    /* left: 25%; */
-    z-index: 5;
-  }
-
-  .cover-img {
-    width: 90%;
-    height: 90%;
-    margin-top: 7%;
-    /* grid-area: album-cover; */
+    overflow: hidden;
+    overflow-y: scroll;
   }
 
   .queue-box {
     /* border-radius: 0 0 20px 20px; */
-    grid-area: song-list;
+    /* grid-area: song-list; */
     /* position: absolute; */
     background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 10px 20px rgba(25,25,25,0.24);
+    /* box-shadow: 0 10px 20px rgba(25,25,25,0.24); */
     /* width: 95%; */
-    height: 200px;
+    height: 100%;
+    width: 100%;
+    margin-top: 5px;
     /* bottom: 5px; */
     /* left: 5px; */
     /* right: 5px; */
     z-index: 3;
-    overflow: hidden;
     overflow-y: scroll;
   }
-  
+
   .songs {
     /* position:relative; */
     font-size: 13px;
     font-family: helvetica;
     color: rgb(137, 137, 137);
-    padding: 10 0 10 10;
+    padding: 15 0 10 10;
+    height: 25px;
     /* grid-area: song-list; */
+  }
+
+  .cover-album {
+    /* position: absolute; */
+    background-color: rgb(183, 26, 26);
+    /*box-shadow: 0 10px 20px rgba(100,100,100,0.26);*/
+    width: 100%;
+    height: 100%;
+    grid-area: album-cover;
+    /* justify-self: center; */
+    text-align: center;
+    /* height: 120px; */
+    /* top: 50; */
+    /* left: 25%; */
+    overflow: hidden;
+    z-index: 5;
+  }
+
+  .cover-img {
+    width: 140px;
+    height: 140px;
+    margin-top: 6px;
+    /* grid-area: album-cover; */
   }
 
   .songs:hover {
@@ -84,6 +92,17 @@
 
   .playing {
     background-color: rgba(255, 255, 255, 0.922);
+  }
+
+  .audio-control {
+    background-color: rgb(52, 183, 26);
+    display: flex;
+    align-items: center;
+    grid-area: song-control;
+  }
+
+  audio {
+    width: 100%;
   }
 
   ::-webkit-scrollbar {
@@ -107,6 +126,39 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(162, 162, 162);
 }
+
+@media (max-width: 500px){
+  .wrapper {
+    display: block;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .cover-album {
+    height: 150px;
+    /* position: fixed;
+    top: 0px; */
+  }
+
+  .bg {
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+
+  .audio-control {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    z-index: 10;
+  }
+
+  audio {
+    background-color: #CCFFFF;
+    width: 100%;
+  }
+}
 </style>
 <!DOCTYPE html>
 <head>
@@ -114,8 +166,11 @@
 <html>
   <body>
     <div class="wrapper">
+      <div class="cover-album">
+        <img class="cover-img" src="https://upload.wikimedia.org/wikipedia/id/1/1b/Lauv_-_I_Like_Me_Better.png"/>
+      </div>
       <div class="bg">
-        <div class="queue-box">
+        <!-- <div class="queue-box"> -->
           <div class="songs">Test 1 - album</div>
           <div class="songs">Test 2 - album</div>
           <div class="songs">Test 3 - album</div>
@@ -126,13 +181,20 @@
           <div class="songs">Test 5 - album</div>
           <div class="songs">Test 6 - album</div>
           <div class="songs">Test 7 - album</div>
-        </div>
-      </div>
-      <div class="cover-album">
-        <img class="cover-img" src="https://upload.wikimedia.org/wikipedia/id/1/1b/Lauv_-_I_Like_Me_Better.png"/>
+          <div class="songs">Test 5 - album</div>
+          <div class="songs">Test 6 - album</div>
+          <div class="songs">Test 7 - album</div>
+          <div class="songs">Test 5 - album</div>
+          <div class="songs">Test 6 - album</div>
+          <div class="songs">Test 7 - album</div>
+        <!-- </div> -->
       </div>
       <div class="audio-control">
-        <audio src="#" type="audio/mpeg"></audio>
+        <!-- <p>HEEEEE</p> -->
+        <audio controls>
+          <source src="../music/A Hat in Time B-Side - 100 Peace and Tranquility.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
       </div>
     </div>
   </body>
